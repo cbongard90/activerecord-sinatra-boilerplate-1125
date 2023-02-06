@@ -1,11 +1,20 @@
 <h1>Welcome to the Restaurant Interface</h1>
 
 <%= Time.now %>
+<h3>Add a restaurant:</h3>
+<form action="/restaurants" method="post">
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name">
+
+  <label for="city">City</label>
+  <input type="text" id="city" name="city">
+  <input type="submit">
+</form>
 
 <h3>My Restaurant List:</h3>
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
+    <li><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></li>
   <% end %>
 
 </ul>
